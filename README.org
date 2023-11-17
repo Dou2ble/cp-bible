@@ -1,0 +1,46 @@
+#+title: Competitive Programming Bible
+#+subtitle: A list of code python code snippets for use in competitive programming
+
+* Python
+
+** Boilerplate
+#+begin_src python
+#!/usr/bin/env python3
+
+if __name__ == "__main__":
+    pass
+#+end_src
+
+** Generic binary search
+#+begin_src python
+import sys
+
+def bin_search(low: int = -1, high: int = sys.maxsize) -> None:
+    while low < high-1:
+        mid = (low+high) // 2
+        if test(mid):
+            high = mid
+        else:
+            low = mid
+#+end_src
+
+** Replace char at index
+#+begin_src python
+def replace_char_at_index(original_string: str, index: int, new_char: str) -> str:
+    # Check if the index is valid
+    if index < 0 or index >= len(original_string):
+        print("Index out of range.")
+        return original_string
+
+    return original_string[:index] + new_char + original_string[index + 1:]
+#+end_src
+
+** Print to stderr
+#+begin_src python
+import sys
+
+def eprint(msg: str, sep: str = " ", end: str = "\n") -> None:
+    print(msg, sep=sep, end=end, file=sys.stderr)
+#+end_src
+
+
